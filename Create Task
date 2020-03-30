@@ -1,0 +1,36 @@
+vocabWords = []
+wordDefinitions = []
+
+print(
+"To begin gameplay, please first add the vocab words using the function, addVocabWords()")
+print("After your words have been added, you may begin the vocab challenge at any time by entering, 'vocabChallenge'"
+)
+def addVocabWords():
+    wordCount = (raw_input("How many vocab words are there?: "))
+    for x in range(1, int(wordCount)+1):
+        vocabWords.append(raw_input("Enter Vocab Word: "))
+        wordDefinitions.append(raw_input("Enter Word Definition: "))
+    print(vocabWords)
+    print(wordDefinitions)
+    callvocabChallenge = (raw_input("To move onto the vocab challenge, please type 'enter': "))
+    
+    if callvocabChallenge == "enter":
+        listPos = 0
+        while listPos < 1 + len(vocabWords):
+            answer = vocabWords[listPos]
+            question = wordDefinitions[listPos]
+            print question
+            userAnswer = raw_input("Enter the word that corresponds with the definition: ")
+            if  userAnswer == answer:
+                listPos = listPos + 1
+                print "Correct, onto the next!"
+            if userAnswer != answer:
+                print "Try Again :("
+                while userAnswer != answer:
+                    userAnswer = raw_input("Enter the word that corresponds with the definition: ")
+                    if userAnswer == answer:
+                        print "Correct, onto the next!"
+                        listPos = listPos + 1
+        print "Congratulations, you've completed the vocab challenge!"
+input("Press ENTER to exit")
+                    
